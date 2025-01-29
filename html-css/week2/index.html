@@ -10,24 +10,29 @@
 <body>
   <div class="container">
     <header class="header">
+      <div class="search-bar">
+        <div class="fx fx-gap">
+          <div id="search-icon">   
+            <div id="search-icon-circle">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+           </div>
+          <div>
+            <input type="search" placeholder="How" onsearch="searchArticle()"  id="input-id" class="input-search"/>
+          </div>
+          <div class="close-btn">
+            <i class="fa-solid fa-x close-icon"></i>
+        </div>
+         
+        </div>
+        </div>
+
         <nav class="navigation">
         <a href="#" class="nav-link">Campaigns</a>
         <a href="#" class="nav-link">Contacts</a>
         <a href="#" class="nav-link active">Help articles</a>
       </nav>
-  <div class="search-bar">
-  <div class="fx fx-gap">
-    <div id="search-icon">   
-      <div id="search-icon-circle">
-        <i class="fa-solid fa-magnifying-glass"></i>
-      </div>
-     </div>
-    <div>
-      <input type="search" placeholder="How" onsearch="searchArticle()"  id="input-id" class="input-search"/>
-    </div>
-   
-  </div>
-  </div>
+
     </header>
     <main class="main">
     <section id="help-articles" class="help-articles">
@@ -57,7 +62,7 @@
             <a href="#">How Mailchimp Handles And Prevents Abuse</a>
             <p>Learn the steps we take to handle abuse of our system and how we handle abuse when it happens. <i class="fa-solid fa-angle-right"></i></p>
           </li>
-        <!-- Additional list items -->
+  
       </ul>
     </section>
     </main>    
