@@ -29,12 +29,8 @@ console.log("Julia's " + result);
 */
 function housePriceEstimator(w, h, d,grdnSz) {
    
-    let width = w;
-    let height= h;
-    let depth= d;
-    let gardenSizeInM2 = grdnSz;
-    let volumeInMeters =width*height*depth;
-    let housePrice = volumeInMeters * 2.5 * 1000 + gardenSizeInM2 * 300;
+    const volumeInMeters =w*h*d;
+    let housePrice = volumeInMeters * 2.5 * 1000 + grdnSz * 300;
 
     return housePrice;
 

@@ -39,12 +39,3 @@ if(!shouldShowResultInDogYears) {
 
 }
 
-function housePriceEstimator() {
-    const gardenSizeInM2 = 100;
-    const width =8;
-    const height= 10;
-    const depth= 10;
-    let volumeInMeters =width*height*depth;
-    housePrice = volumeInMeters * 2.5 * 1000 + gardenSizeInM2 * 300;
-
-}
