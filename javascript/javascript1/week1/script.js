@@ -28,7 +28,7 @@ const shouldShowResultInDogYears= false;
 
 let dogYear=dogYearFuture - dogYearOfBirth;
 
-if(!shouldShowResultInDogYears) {
+if(shouldShowResultInDogYears) {
     //In Human years :Multiple by 7
     dogYear= 7*dogYear;
 
