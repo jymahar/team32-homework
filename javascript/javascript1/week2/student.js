@@ -1,6 +1,6 @@
 const class07Students = [];
-addStudentToClass(name);
 console.log(class07Students);
+addStudentToClass("John");
 addStudentToClass("Mary");
 addStudentToClass("Tom");
 addStudentToClass("Richard");
@@ -27,11 +27,12 @@ console.log("Total Number of students in class 07: "+getNumberOfStudents());
  */
 function addStudentToClass(studentName) {
 
-    if(studentName == '') {
+    if(studentName.trim() == '') {
+      console.error("Name is empty");
         return;
-    } else if (class07Students.length == 6 && studentName !="Queen") {
+    } else if (class07Students.length >= 6 && studentName !="Queen") {
         console.log("Cannot add more students to Class 07");
-    } else if (studentName != " " && class07Students.indexOf(studentName) >-1) {
+    } else if (class07Students.includes(studentName)) {
         console.log(`Student ${studentName} is already in the class`);
 
     } else {

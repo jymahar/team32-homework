@@ -14,12 +14,12 @@ console.log(getEventWeekday(2));
 function getEventWeekday(noOfDays) {
 
     const currentDate = new Date();
-    let todaysDay = currentDate.getDay();
+    const todaysDay = currentDate.getDay();
 
-    let count = (todaysDay+ noOfDays)% 7;
+    const count = (todaysDay+ noOfDays)% 7;
     
-    const dayNames = ["Monday", "Tuesday","Wednesday", "Thursday", "Friday","Saturday" , "Sunday"];
+    const dayNames = ["Sunday","Monday", "Tuesday","Wednesday", "Thursday", "Friday","Saturday" ];
 
-    return dayNames[count-1];
+    return dayNames[count];
 
 }

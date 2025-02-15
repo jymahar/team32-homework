@@ -2,6 +2,9 @@ const boughtCandyPrices = [];
 addCandy("Sweet", 20); //Adds the price of 20 grams of sweets to the array boughtCandyPrices
 addCandy("Chocolate", 10);// Adds the price of 10 grams of chocolate to the array boughtCandyPrices
 
+//Negavtive use case:Invalid candy
+addCandy("Truffle", 10);
+
 console.log(boughtCandyPrices);
 
 const amountToSpend  = Math.random()*100;
@@ -42,7 +45,8 @@ function addCandy(candyType, weight){
             break;
         }
          default : {
-
+         console.error("Invalid Candy Type");
+         break;
         }
 
 

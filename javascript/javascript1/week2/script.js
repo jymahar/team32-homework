@@ -1,35 +1,43 @@
 
-const firstname = "Benjamin";
-const surname = "Hughes";
+const firstName = "Benjamin";
+const surName = "Hughes";
 const isFemale = false;
 const useFormalName= false;
 
-const fullname1= getFullname(firstname, surname, useFormalName, isFemale);
-const fullname2= getFullname(firstname, surname, true, isFemale);
-const fullname3= getFullname("Jyoti", "Mahar", true,true );
+const fullname1= getFullname(firstName, surName, useFormalName, isFemale);
+const fullname2= getFullname(firstName, surName, true, isFemale);
+const fullname3= getFullname("Jyoti", " Mahar", true,true );
+
+const fullname4= getFullname(" ", " Mahar", true,true );
 
 console.log(fullname1);
 console.log(fullname2);
 console.log(fullname3);
+console.log(fullname4);
+
 
 /**
  * Function to get fullname
- * @param {string} firstname 
- * @param {string} surname 
+ * @param {string} firstName 
+ * @param {string} surName 
  * @param {boolean} useFormalName 
+ *  @param {boolean} isFemale 
  */
-function getFullname(firstname, surname, useFormalName, isFemale) {
+function getFullname(firstName, surName, useFormalName, isFemale) {
 
-    if(firstname === '' || surname === '') {
-        alert("Please enter your first or last name");
-        return;
+    if (!firstName.trim() && !surName.trim()) {
+        return "Missing both First Name and Sur Name";
+    } else if (!firstName.trim()) {
+        return "Missing First Name";
+    } else if (!surName.trim()) {
+        return "Missing Sur Name";
     }
   
     if(!useFormalName){
-     return (firstname + " " + surname);
+     return (firstName + " " + surName);
     } else if(useFormalName && !isFemale) {
-        return ("Lord " + firstname + " " + surname);
+        return ("Lord " + firstName + " " + surName);
     } else {
-        return ("Lady " + firstname + " " + surname);
+        return ("Lady " + firstName + " " + surName);
     }
 }
