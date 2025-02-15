@@ -24,7 +24,7 @@ function dogAgeCalculator() {
 const dogYearOfBirth =2023;
 const dogYearFuture = 2030;
 
-const shouldShowResultInDogYears= true;
+const shouldShowResultInDogYears= false;
 
 let dogYear=dogYearFuture - dogYearOfBirth;
 
