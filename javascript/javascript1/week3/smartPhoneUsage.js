@@ -1,6 +1,14 @@
 const activities = [];
 
 function addActivity(activity, duration) {
+  if (typeof activity !== "string" || activity.trim == " ") {
+    return "Invalid activity";
+  }
+
+  if (typeof duration !== "number" || duration < 0) {
+    return "Invalid duration";
+  }
+
   const today = new Date();
   const obj = {
     date: today.toLocaleDateString(),
@@ -36,19 +44,21 @@ function showStatus() {
     return;
   }
 
-  const todayActivities = activities.filter(
-    (activity) => activity.date === today
-  );
-  const totalUsage = todayActivities.reduce(
-    (sum, activity) => sum + activity.duration,
-    0
-  );
+  let totalUsage = 0;
+  let activityCount = 0;
+
+  for (let i = 0; i < activities.length; i++) {
+    if (activities[i].date === today) {
+      totalUsage += activities[i].duration;
+      activityCount++;
+    }
+  }
 
   console.log(
     `${
       totalUsage > usageLimit
         ? "You have reached your limit, no more smartphoning for you!"
-        : `You have added ${todayActivities.length} activities. They amount to ${totalUsage} min. of usage`
+        : `You have added ${activityCount} activities. They amount to ${totalUsage} min. of usage`
     }`
   );
 }

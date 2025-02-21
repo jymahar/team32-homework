@@ -33,8 +33,9 @@ const seriesDurations = [
 
 function logOutSeriesText() {
   const avgLifeSpanInYrs = 80;
+  const hoursIn1Yr = 8760;
   //covert to minutes
-  const lifeSpanInMins = avgLifeSpanInYrs * 8760 * 60; //42048000 mins
+  const lifeSpanInMins = avgLifeSpanInYrs * hoursIn1Yr * 60; //42048000 mins
 
   for (let series of seriesDurations) {
     const title = series.title;
