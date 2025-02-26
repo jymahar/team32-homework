@@ -48,31 +48,35 @@ function getReply(command) {
     (input.includes("day") ||
       (input.includes("date") && input.includes("today")))
   ) {
-    const day = new Date();
-    let months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-    return `Today is ${day.getDate()} of ${
-      months[day.getMonth()]
-    } ${day.getFullYear()}`;
+    return getCurrentDate();
   } else if (input.match(/what is (\d+)\s*([\+\-\*\/])\s*(\d+)/i)) {
     return checkMathOperation(command);
   } else if (input.includes("set") && input.includes("timer")) {
     setTimer(input);
   } else {
-    return;
+    return "Sorry I dont understand you";
   }
+}
+
+function getCurrentDate() {
+  const day = new Date();
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  return `Today is ${day.getDate()} of ${
+    months[day.getMonth()]
+  } ${day.getFullYear()}`;
 }
 
 function readToDoList() {
@@ -150,3 +154,5 @@ console.log(getReply("What is 4580 - 2000")); // 2580
 console.log(getReply("What is 1000 * 0")); // 0
 
 getReply("Set a timer for 4 minutes"); //Timer set for 1 minutes. Then after 4 mins "Timer done"
+
+console.log(getReply("Tell me about yourself")); //Sorry I dont understand you
