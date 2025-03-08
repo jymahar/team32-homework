@@ -16,7 +16,7 @@ function getReply(command) {
   if (input.includes("hello my name is")) {
     let token = input.split(" ");
     const username = token[token.length - 1];
-    if (savedName === " ") {
+    if (savedName.length === 0 || savedName != username) {
       savedName = username;
       return `Nice to meet you ${username}`;
     } else if (savedName === username) {
@@ -139,6 +139,8 @@ console.log(getReply("What is my name"));
 console.log(getReply("Hello my name is Benjamin")); // "Nice to meet you benjamin"
 console.log(getReply("Hello my name is Benjamin")); //nice to meet you again benjamin
 console.log(getReply("What is my name")); //"Your name is Benjamin"
+console.log(getReply("Hello my name is Jyoti"));
+console.log(getReply("What is my name")); //"Your name is Jyoti"
 console.log(getReply("Add fishing to my todo")); //fishing added to your todo
 console.log(getReply("Add singing in shower to my todo")); //singing in shower added to your todo
 console.log(getReply("Add running to my todo")); //running added to your todo
