@@ -10,7 +10,7 @@ JOIN user_task
 ON user_task.task_id = task.id
 JOIN user
 ON user_task.user_id = user.id
-WHERE user.email LIKE '%@spotify.com%';
+WHERE user.email LIKE '%@spotify.com';
 
 --2.Get all the tasks for 'Donald Duck' with status 'Not started'
 SELECT task.id, task.title, user.name, status.name

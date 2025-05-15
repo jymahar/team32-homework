@@ -6,11 +6,19 @@ CREATE TABLE Users (
     password VARCHAR(100) NOT NULL
 );
 
+CREATE TABLE Genre ( 
+    genre_id INT PRIMARY KEY AUTO_INCREMENT,
+    name ENUM('Pop', 'Hip Hop', 'Soul', 'Metal', 'R&B', 'Funk', 'Alternative Rock') UNIQUE NOT NULL
+);
+
 -- ARTISTS
 CREATE TABLE Artists (
     artist_id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
-    genre VARCHAR(50)
+    genre INT NOT NULL,
+    FOREIGN KEY (genre) REFERENCES Genre(genre_id)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE
 );
 
 -- ALBUMS
