@@ -37,13 +37,24 @@ app.get("/search", (req, res) => {
     if (!query) {
       return res.status(StatusCodes.OK).json(documents);
     }
+
+    // Validate query input
+    if (
+      typeof query !== "string" ||
+      query.trim().length < 2 ||
+      query.trim().length > 100
+    ) {
+      return res.status(StatusCodes.BAD_REQUEST).json({
+        message:
+          "Invalid query parameter. It must be a string between 2 and 100 characters.",
+      });
+    }
     // If q is provided, the endpoint will return the documents with some field that matches the value of q
     const filtered = documents.filter((doc) =>
       Object.values(doc).some((value) =>
         String(value).toLowerCase().includes(query.toLowerCase())
       )
     );
-    console.log(filtered);
     if (filtered.length === 0) {
       res.status(StatusCodes.NOT_FOUND).json({
         message: "Queried Data not found",
@@ -67,15 +78,13 @@ app.get("/documents/:id", (req, res) => {
     console.log(id);
 
     const document = documents.find((doc) => doc.id === id);
-    console.log(document);
     if (!document) {
-      console.log("inside error");
       return res
         .status(StatusCodes.NOT_FOUND)
         .json({ error: `Document by id: ${id} not found` });
+    } else {
+      return res.status(StatusCodes.OK).json(document);
     }
-
-    res.json(document);
   } catch (err) {
     console.error("Error fetching document by id", err);
     res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
