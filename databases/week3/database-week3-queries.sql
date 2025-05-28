@@ -62,8 +62,10 @@ DELETE FROM review WHERE id=4;
 SELECT * from meal where price < 90;
 
 --Get meals that still has available reservations
-SELECT meal.id,meal.title,count(meal.id) as no_of_bookings, meal.max_reservations FROM meal JOIN reservation ON meal.id= reservation.meal_id
-GROUP BY meal_id HAVING  no_of_bookings < meal.max_reservations ;
+SELECT title, max_reservations,count(reservation.number_of_guests) as no_of_bookings
+FROM meal LEFT JOIN reservation ON meal.id= reservation.meal_id
+GROUP BY title ,max_reservations HAVING  no_of_bookings < meal.max_reservations ;
+
 
 --Get meals that partially match a title. Rød grød med will match the meal with the title Rød grød med fløde
 SELECT * FROM meal WHERE title LIKE "%Pasta%";
