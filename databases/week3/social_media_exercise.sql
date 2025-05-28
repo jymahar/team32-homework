@@ -9,14 +9,14 @@ name VARCHAR(100) NOT NULL,
 email VARCHAR(255) NOT NULL UNIQUE,
 pasword TEXT NOT NULL,
 registration_datetime TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-)
+);
 
 -- POSTS TABLE:
 CREATE TABLE posts (
     id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT NOT NULL,
-    title VARCHAR(255),
-    content TEXT,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
     creation_datetime TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     update_datetime TIMESTAMP,
     FOREIGN KEY users(id) REFERENCES users(id) ON DELETE CASCADE
@@ -31,7 +31,7 @@ CREATE TABLE comments (
     parent_comment_id INT,
     content TEXT NOT NULL,
     creation_datetime TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    update_datetime TIMESTAMP,
+    update_datetime TIMESTAMP DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (post_id) REFERENCES posts(id) ON DELETE CASCADE,
     FOREIGN KEY (parent_comment_id) REFERENCES comments(id) ON DELETE CASCADE

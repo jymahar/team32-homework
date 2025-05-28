@@ -75,10 +75,10 @@ SELECT * FROM meal WHERE created_date BETWEEN '2025-04-20' AND '2025-04-21';
 SELECT * FROM meal LIMIT 5;
 
 --Get the meals that have good reviews
-SELECT meal.id,meal.title, review.stars as rating FROM meal JOIN review ON meal.id= review.meal_id HAVING rating > 3
+SELECT DISTINCT meal.id,meal.title, review.stars as rating FROM meal JOIN review ON meal.id= review.meal_id where review.stars > 3
 
 --Get reservations for a specific meal sorted by created_date
-SELECT  meal.title, reservation.created_date FROM reservation  JOIN meal ON meal.id=reservation.meal_id WHERE meal.title LIKE "%Pasta%"ORDER BY reservation.created_date DESC;
+SELECT  meal.title, reservation.created_date,contact_phonenumber,contact_name,contact_email FROM reservation  JOIN meal ON meal.id=reservation.meal_id WHERE meal.id=1 ORDER BY reservation.created_date DESC
 
 --Sort all meals by average number of stars in the reviews
 SELECT  meal.id , meal.title, AVG(review.stars) as average_stars
