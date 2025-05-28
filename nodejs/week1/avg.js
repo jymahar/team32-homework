@@ -1,6 +1,6 @@
 const args = process.argv.slice(2);
 
-if (args.length == 0) {
+if (args.length === 0) {
   console.error("No arguments provided. Please enter numbers");
   process.exit(1);
 }
@@ -17,6 +17,6 @@ if (numbers.some(isNaN)) {
 const sum = numbers.reduce((acc, num) => acc + num, 0);
 
 // Calculate the average
-const average = sum / numbers.length;
+const average = (sum / numbers.length).toFixed(2);
 
 console.log(`Average: ${average}`);
