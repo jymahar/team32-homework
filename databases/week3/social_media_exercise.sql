@@ -19,7 +19,7 @@ CREATE TABLE posts (
     content TEXT NOT NULL,
     creation_datetime TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     update_datetime TIMESTAMP,
-    FOREIGN KEY users(id) REFERENCES users(id) ON DELETE CASCADE
+    FOREIGN KEY user_id REFERENCES users(id) ON DELETE CASCADE
     );
 
 
