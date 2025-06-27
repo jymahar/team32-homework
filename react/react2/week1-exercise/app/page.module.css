@@ -1,0 +1,32 @@
+.nasaContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.navbar {
+  display: flex;
+  gap: 1rem;
+  background-color: #0b3d91;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.navbar a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.navbar a:hover {
+  background-color: #1e4fbe;
+}
+
+.navbar a.active {
+  background-color: #ffffff;
+  color: #0b3d91;
+}
